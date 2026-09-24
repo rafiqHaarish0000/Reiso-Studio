@@ -1,0 +1,21 @@
+{
+  "expo": {
+    "name": "Reiso Studio",
+    "slug": "reiso-studio",
+    "scheme": "reiso-studio",
+    "version": "1.0.0",
+    "orientation": "default",
+    "newArchEnabled": true,
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#050507",
+    "web": {
+      "bundler": "metro",
+      "backgroundColor": "#050507",
+      "name": "Reiso Studio — Digital products built for modern businesses"
+    },
+    "experiments": {
+      "typedRoutes": true
+    },
+    "plugins": ["expo-router"]
+  }
+}

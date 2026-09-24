@@ -1,8 +1,0 @@
-/* Responsive layer — TABLET + MOBILE overrides ONLY.
-   Base styles live in css/*. Do not add new base components here. */
-
-/* shared responsive helpers */
-.responsive-note { display: none; }
-
-/* imported per-page below via index.html link order:
-   css/* → responsive/responsive.css → responsive/tablet.css → responsive/mobile.css */

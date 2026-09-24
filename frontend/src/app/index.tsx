@@ -5,6 +5,7 @@ import { Header } from "../components/Header";
 import { Hero } from "../components/Hero";
 import { MobileMenu } from "../components/MobileMenu";
 import { ProjectAvailability } from "../components/ProjectAvailability";
+import { StrategySection } from "../components/StrategySection";
 import { useResponsive } from "../hooks/useResponsive";
 import { colors } from "../constants/colors";
 
@@ -46,6 +47,7 @@ export default function Home() {
               <Text style={styles.localeSub}>WORKING WORLDWIDE</Text>
             </View>
           </View>
+          <StrategySection />
         </ScrollView>
       </Animated.View>
       <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} />

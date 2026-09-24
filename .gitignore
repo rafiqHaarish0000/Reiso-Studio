@@ -1,0 +1,21 @@
+# deps / logs / os
+node_modules/
+dist/
+.build/
+*.log
+.DS_Store
+Thumbs.db
+
+# env (never commit real keys)
+.env
+backend/.env
+frontend/.env
+
+# editor
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# python / misc
+__pycache__/
+*.pyc

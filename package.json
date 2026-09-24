@@ -1,0 +1,12 @@
+{
+  "name": "reiso-studio",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Reiso Studio — Software, Websites & Digital Systems for Modern Businesses",
+  "scripts": {
+    "frontend": "npx serve frontend",
+    "backend:install": "cd backend && npm install",
+    "backend:dev": "cd backend && npm run dev",
+    "db:show-schema": "cat database/schema.sql"
+  }
+}

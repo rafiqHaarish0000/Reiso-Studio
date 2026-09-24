@@ -1,0 +1,8 @@
+/* Tablet: ≤1024px */
+@media (max-width: 1024px) {
+  .nav__links { display: none; }
+  .nav__menu-btn { display: inline-flex !important; }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .footer__grid { grid-template-columns: 1fr 1fr 1fr; }
+  .hero__logo { width: min(240px, 60vw); }
+}

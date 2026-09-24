@@ -6,6 +6,7 @@ import { Hero } from "../components/Hero";
 import { MobileMenu } from "../components/MobileMenu";
 import { ProjectAvailability } from "../components/ProjectAvailability";
 import { StrategySection } from "../components/StrategySection";
+import { BuildSection } from "../components/BuildSection";
 import { useResponsive } from "../hooks/useResponsive";
 import { colors } from "../constants/colors";
 
@@ -48,6 +49,9 @@ export default function Home() {
             </View>
           </View>
           <StrategySection />
+          <BuildSection />
+          {/* anchor for SEE THE WORK — projects section lands here next */}
+          <View nativeID="work" style={styles.workAnchor} />
         </ScrollView>
       </Animated.View>
       <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
@@ -81,6 +85,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+  },
+  workAnchor: {
+    height: 0,
   },
   statusBar: {
     flexDirection: "row",

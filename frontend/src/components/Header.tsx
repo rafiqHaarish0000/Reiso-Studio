@@ -71,7 +71,10 @@ export function Header({ onMenu }: { onMenu: () => void }) {
             <Pressable
               accessibilityRole="button"
               accessibilityLabel="Start a project"
-              style={[styles.cta, hoverCta && styles.ctaHover]}
+              // NOTE: must be a single object — Radix Slot (Link asChild) does
+              // `{...slotStyle, ...childStyle}`, which corrupts style ARRAYS
+              // into {0, 1, ...} and crashes React DOM on web.
+              style={hoverCta ? styles.ctaHovering : styles.cta}
               {...(Platform.OS === "web"
                 ? ({
                     onMouseEnter: () => setHoverCta(true),
@@ -182,7 +185,9 @@ const styles = StyleSheet.create({
     minHeight: 44,
     justifyContent: "center",
   },
-  ctaHover: {
+  ctaHovering: {
+    minHeight: 44,
+    justifyContent: "center",
     transform: [{ translateY: -2 }],
   },
   ctaText: {

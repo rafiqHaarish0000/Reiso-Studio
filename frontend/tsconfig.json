@@ -3,8 +3,16 @@
   "compilerOptions": {
     "strict": true,
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ]
     }
   },
-  "include": ["src/**/*", "babel.config.js", "metro.config.js"]
+  "include": [
+    "src/**/*",
+    "babel.config.js",
+    "metro.config.js",
+    ".expo/types/**/*.ts",
+    "expo-env.d.ts"
+  ]
 }

@@ -1,22 +1,57 @@
 import React from "react";
-import { Pressable, StyleSheet, Text, View } from "react-native";
-import { Link } from "expo-router";
+import { StyleSheet, Text, View } from "react-native";
 import { colors } from "../constants/colors";
-export default function Page() {
+import { COMPANY } from "../data/site";
+import { GradientText, Reveal } from "../components/site/primitives";
+import {
+  ContactChannels,
+  EnquiryForm,
+  FaqList,
+  MapBlock,
+  PageHero,
+  SitePage,
+  wrapCenter,
+} from "../components/site/sections";
+
+export default function Contact() {
   return (
-    <View style={styles.root}>
-      <Text style={styles.eyebrow}>REISO STUDIO</Text>
-      <Text style={styles.title}>CONTACT</Text>
-      <Text style={styles.sub}>Coming next — homepage is the current focus.</Text>
-      <Link href="/" asChild><Pressable style={styles.back} accessibilityRole="link" accessibilityLabel="Back home"><Text style={styles.backText}>← BACK HOME</Text></Pressable></Link>
-    </View>
+    <SitePage active="/contact">
+      <PageHero
+        eyebrow="CONTACT US"
+        title={<Text>Let's talk about <GradientText>your project.</GradientText></Text>}
+        sub="Call, WhatsApp, email — or send the form and we'll get back within 24 hours."
+      />
+      <View style={c.wrap}>
+        <Reveal>
+          <View style={c.hq}>
+            <Text style={c.hqName}>{COMPANY.name}</Text>
+            <Text style={c.hqLine}>{COMPANY.city}</Text>
+            <Text style={c.hqLine}>{COMPANY.state}</Text>
+            <Text style={c.hqLine}>Phone / WhatsApp: {COMPANY.phoneDisplay}</Text>
+            <Text style={c.hqLine}>Email: {COMPANY.email}</Text>
+          </View>
+        </Reveal>
+        <ContactChannels />
+        <EnquiryForm />
+        <MapBlock />
+        <View style={{ marginTop: 56 }}>
+          <Reveal>
+            <Text style={c.faqTitle}>Questions, answered.</Text>
+          </Reveal>
+          <FaqList />
+        </View>
+      </View>
+    </SitePage>
   );
 }
-const styles = StyleSheet.create({
-  root: { flex: 1, backgroundColor: colors.bg0, alignItems: "center", justifyContent: "center", padding: 32 },
-  eyebrow: { color: colors.textMuted, fontSize: 11, letterSpacing: 1.5, marginBottom: 12 },
-  title: { color: colors.textPrimary, fontSize: 56, fontWeight: "800", fontFamily: "'Space Grotesk','Inter',sans-serif" },
-  sub: { color: colors.textSecondary, marginTop: 10, fontSize: 14 },
-  back: { marginTop: 24, minHeight: 44, justifyContent: "center", borderWidth: 1, borderColor: colors.border, paddingHorizontal: 20 },
-  backText: { color: colors.textPrimary, fontWeight: "700", letterSpacing: 1 },
+
+const c = StyleSheet.create({
+  wrap: { ...wrapCenter, maxWidth: 1000, paddingBottom: 30 },
+  hq: {
+    backgroundColor: "rgba(255,255,255,0.03)", borderWidth: 1, borderColor: colors.border,
+    borderRadius: 22, padding: 30, alignItems: "center", marginBottom: 26, gap: 4,
+  },
+  hqName: { color: colors.textPrimary, fontSize: 24, fontWeight: "700", fontFamily: "'Space Grotesk','Inter',sans-serif" },
+  hqLine: { color: colors.textSecondary, fontSize: 14, marginTop: 2 },
+  faqTitle: { color: colors.textPrimary, fontSize: 28, fontWeight: "700", fontFamily: "'Space Grotesk','Inter',sans-serif", marginBottom: 20, textAlign: "center" },
 });

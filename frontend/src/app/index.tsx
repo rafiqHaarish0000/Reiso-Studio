@@ -1,38 +1,41 @@
 import React from "react";
-import { HeroSection } from "../components/site/HeroSection";
-import { AboutNumbers } from "../components/site/AboutNumbers";
-import { SolutionsSection } from "../components/site/SolutionsSection";
-import { InnovateSection } from "../components/site/InnovateSection";
-import { WhyChooseUsSection } from "../components/site/WhyChooseUsSection";
-import { ServicesSection } from "../components/site/ServicesCinematic";
-import { AboutSection, ProductsSection } from "../components/site/Showcase";
-import { ReviewsSection } from "../components/site/ReviewsSection";
-import { FaqSection } from "../components/site/FaqSection";
-import {
-  LedSection,
-  ProcessSection,
-  SitePage,
-  TemplatesSection,
-  WorkSection,
-} from "../components/site/sections";
+import { Platform, StyleSheet, Text, View } from "react-native";
 
 export default function Home() {
+  if (Platform.OS === "web") {
+    const Div: any = "div";
+    return (
+      <Div
+        style={{
+          minHeight: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          backgroundColor: "#000000",
+        }}
+      >
+        <Div
+          style={{
+            color: "#F5F5F5",
+            fontSize: "28px",
+            fontWeight: 300,
+            letterSpacing: "4px",
+            fontFamily: "Inter,system-ui,sans-serif",
+          }}
+        >
+          Coming Soon
+        </Div>
+      </Div>
+    );
+  }
   return (
-    <SitePage active="/">
-      <HeroSection />
-      <AboutNumbers />
-      <SolutionsSection />
-      <InnovateSection />
-      <WhyChooseUsSection />
-      <ServicesSection />
-      <ProductsSection />
-      <AboutSection />
-      <TemplatesSection />
-      <WorkSection />
-      <LedSection />
-      <ProcessSection />
-      <ReviewsSection />
-      <FaqSection />
-    </SitePage>
+    <View style={s.root}>
+      <Text style={s.text}>Coming Soon</Text>
+    </View>
   );
 }
+
+const s = StyleSheet.create({
+  root: { flex: 1, backgroundColor: "#000000", alignItems: "center", justifyContent: "center" },
+  text: { color: "#F5F5F5", fontSize: 28, fontWeight: "300", letterSpacing: 4 },
+});

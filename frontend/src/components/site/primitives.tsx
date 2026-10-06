@@ -223,6 +223,52 @@ export function GradientText({ children, style }: { children: React.ReactNode; s
   return <Text style={[{ color: colors.cyan }, style]}>{children}</Text>;
 }
 
+/* Image with graceful fallback: if the remote asset fails, render a quiet
+   navy placeholder instead of leaking alt text into the layout. */
+export function SafeImage({
+  uri,
+  aspect = 16 / 10,
+  label,
+  style,
+}: {
+  uri: string;
+  aspect?: number;
+  label?: string;
+  style?: any;
+}) {
+  const [err, setErr] = React.useState(false);
+  if (err) {
+    return (
+      <View
+        style={[
+          {
+            width: "100%",
+            aspectRatio: aspect,
+            borderRadius: 12,
+            backgroundColor: "#0A1224",
+            borderWidth: 1,
+            borderColor: "rgba(255,255,255,0.08)",
+            alignItems: "center",
+            justifyContent: "center",
+            overflow: "hidden",
+          },
+          style,
+        ]}
+      >
+        <Text style={{ color: "rgba(30,167,255,0.55)", fontSize: 22 }}>✦</Text>
+      </View>
+    );
+  }
+  return (
+    <Image
+      source={{ uri }}
+      style={[{ width: "100%", aspectRatio: aspect, borderRadius: 12, backgroundColor: "#0A1224" }, style]}
+      accessibilityLabel={label}
+      onError={() => setErr(true)}
+    />
+  );
+}
+
 type BtnProps = {
   children: React.ReactNode;
   onPress?: () => void;

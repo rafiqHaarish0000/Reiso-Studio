@@ -33,7 +33,7 @@ import {
 } from "../../data/site";
 import { SiteFooter, SiteNav } from "./chrome";
 import { CtaSection } from "./CtaSection";
-import { CTAButton, CountUp, Div, Float, GradientText, IFrame, Marquee, Reveal, SectionHead } from "./primitives";
+import { CTAButton, CountUp, Div, Float, GradientText, IFrame, Marquee, Reveal, SafeImage, SectionHead } from "./primitives";
 import { useResponsive } from "../../hooks/useResponsive";
 
 /* Centered content container. `alignSelf` alone does NOT center on web when
@@ -117,6 +117,46 @@ export function PageHero({ eyebrow, title, sub }: { eyebrow: string; title: Reac
   );
 }
 
+/* Left-aligned section header — reference language: bracket label, thin 42px title. */
+export function LeftHead({ eyebrow, title, sub }: { eyebrow: string; title: string; sub?: string }) {
+  const { isMobile } = useResponsive();
+  return (
+    <View style={{ marginBottom: 52 }}>
+      <Reveal>
+        <Text style={lh.label}>
+          <Text style={lh.bracket}>[ </Text>
+          {eyebrow}
+          <Text style={lh.bracket}> ]</Text>
+        </Text>
+      </Reveal>
+      <Reveal delay={90}>
+        <Text style={[lh.title, isMobile && lh.titleMobile]}>{title}</Text>
+      </Reveal>
+      {sub ? (
+        <Reveal delay={180}>
+          <Text style={lh.sub}>{sub}</Text>
+        </Reveal>
+      ) : null}
+    </View>
+  );
+}
+
+const lh = StyleSheet.create({
+  label: { color: "#1EA7FF", fontSize: 13, fontWeight: "500", letterSpacing: 2, marginBottom: 20 },
+  bracket: { color: "rgba(255,255,255,0.35)" },
+  title: {
+    color: "#F5F5F5",
+    fontSize: 42,
+    fontWeight: "300",
+    letterSpacing: -0.5,
+    lineHeight: 50,
+    fontFamily: "'Inter','Geist',system-ui,sans-serif",
+    maxWidth: 640,
+  },
+  titleMobile: { fontSize: 32, lineHeight: 38 },
+  sub: { color: "#9A9A9A", fontSize: 16, lineHeight: 26, marginTop: 18, maxWidth: 640 },
+});
+
 /* ---------------- WHAT WE DO ---------------- */
 export function WhatWeDo() {
   return (
@@ -191,9 +231,9 @@ export function TemplatesSection({ limit = 10 }: { limit?: number }) {
   const router = useRouter();
   return (
     <View style={s.section} nativeID="templates">
-      <SectionHead
+      <LeftHead
         eyebrow="FREE STARTERS"
-        title={<Text>10 free templates. <GradientText>Zero cost to start.</GradientText></Text>}
+        title="10 free templates. Zero cost to start."
         sub="Browse and download free starter templates. We can also customize, deploy, integrate APIs, fix bugs, or convert any template into a complete production-ready product."
       />
       <View style={s.grid}>
@@ -205,7 +245,7 @@ export function TemplatesSection({ limit = 10 }: { limit?: number }) {
               onPress={() => router.push("/contact")}
               style={({ hovered }: any) => [s.card, hovered && s.cardHover]}
             >
-              <Image source={{ uri: `https://picsum.photos/seed/${t.seed}/640/360` }} style={s.thumb} accessibilityLabel={t.name} />
+              <SafeImage uri={`https://picsum.photos/seed/${t.seed}/640/360`} aspect={16 / 9} label={t.name} style={s.thumb} />
               <View style={s.tplRow}>
                 <Text style={s.cardTitle}>{t.name}</Text>
                 <View style={s.catPill}><Text style={s.catPillText}>{t.category}</Text></View>
@@ -230,14 +270,14 @@ export function LedSection() {
   const router = useRouter();
   return (
     <View style={s.section}>
-      <SectionHead
+      <LeftHead
         eyebrow="SMART INTERIORS"
-        title={<Text>Technology meets <GradientText>modern interiors.</GradientText></Text>}
+        title="Technology meets modern interiors."
         sub="Elegant LED mirror solutions for homes, salons, hotels, offices, showrooms, bathrooms, dressing areas, and commercial interiors."
       />
       <Reveal>
         <View style={s.ledHero}>
-          <Image source={{ uri: IMAGES.ledMain }} style={s.ledImg} accessibilityLabel="Luxury LED mirror interior" />
+          <SafeImage uri={IMAGES.ledMain} aspect={2} label="Luxury LED mirror interior" style={s.ledImg} />
           <LinearGradient colors={["transparent", "rgba(5,5,7,0.85)"]} style={s.ledShade} />
           <View style={s.ledOverlay}>
             <Text style={s.ledTitle}>The Statement Mirror Collection</Text>
@@ -248,14 +288,19 @@ export function LedSection() {
       <View style={s.chipGrid}>
         {LED_FEATURES.map((f, i) => (
           <Reveal key={f} delay={(i % 5) * 60}>
-            <View style={s.cap}><Text style={s.capText}>✦ {f}</Text></View>
+            <View style={s.cap}>
+              <Text style={s.capText}>
+                <Text style={s.capStar}>✦ </Text>
+                {f}
+              </Text>
+            </View>
           </Reveal>
         ))}
       </View>
       <View style={s.trio}>
         {[IMAGES.ledDetail1, IMAGES.ledDetail2, IMAGES.ledDetail3].map((uri, i) => (
           <Reveal key={i} delay={i * 100} style={{ flex: 1, flexBasis: 220 }}>
-            <Image source={{ uri }} style={s.trioImg} accessibilityLabel="Smart interior product" />
+            <SafeImage uri={uri} aspect={1} label="Smart interior product" style={s.trioImg} />
           </Reveal>
         ))}
       </View>
@@ -273,16 +318,16 @@ export function WorkSection() {
   const router = useRouter();
   return (
     <View style={s.section}>
-      <SectionHead
+      <LeftHead
         eyebrow="OUR WORK"
-        title={<Text>Built for <GradientText>real businesses.</GradientText></Text>}
+        title="Built for real businesses."
         sub="A snapshot of recent launches. Live project links plug straight into these cards whenever you're ready."
       />
       <View style={s.grid}>
         {PROJECTS.map((p, i) => (
           <Reveal key={p.name} delay={(i % 3) * 80} style={s.gridItem}>
             <View style={s.card}>
-              <Image source={{ uri: `https://picsum.photos/seed/${p.seed}/640/360` }} style={s.thumb} accessibilityLabel={p.name} />
+              <SafeImage uri={`https://picsum.photos/seed/${p.seed}/640/360`} aspect={16 / 9} label={p.name} style={s.thumb} />
               <Text style={s.projCat}>{p.category}</Text>
               <Text style={s.cardTitle}>{p.name}</Text>
               <Text style={s.cardBlurb}>{p.blurb}</Text>
@@ -578,7 +623,7 @@ export function ProductGroups() {
                   onPress={() => router.push("/contact")}
                   style={({ hovered }: any) => [s.card, hovered && s.cardHover]}
                 >
-                  <Image source={{ uri: `https://picsum.photos/seed/${p.seed}/640/360` }} style={s.thumb} accessibilityLabel={p.name} />
+                  <SafeImage uri={`https://picsum.photos/seed/${p.seed}/640/360`} aspect={16 / 9} label={p.name} style={s.thumb} />
                   <Text style={s.projCat}>{p.category}</Text>
                   <Text style={s.cardTitle}>{p.name}</Text>
                   <Text style={s.cardBlurb}>{p.blurb}</Text>
@@ -615,17 +660,17 @@ const s = StyleSheet.create({
   statItem: { flexGrow: 1, flexShrink: 1, flexBasis: 150, minWidth: 0 },
   card: {
     width: "100%",
-    backgroundColor: "rgba(255,255,255,0.03)",
-    borderWidth: 1, borderColor: colors.borderSubtle, borderRadius: 20, padding: 26,
+    backgroundColor: "#000000",
+    borderWidth: 1, borderColor: "rgba(255,255,255,0.18)", borderRadius: 18, padding: 26,
   },
-  cardHover: { borderColor: "rgba(30,167,255,0.45)", backgroundColor: "rgba(255,255,255,0.05)", transform: [{ translateY: -4 }] as any },
+  cardHover: { borderColor: "rgba(255,255,255,0.32)", backgroundColor: "rgba(10,18,35,0.5)", transform: [{ translateY: -4 }] as any },
   cardIcon: { fontSize: 34, marginBottom: 14 },
-  cardTitle: { color: colors.textPrimary, fontSize: 20, fontWeight: "700", fontFamily: "'Space Grotesk','Inter',sans-serif", marginTop: 4 },
-  cardBlurb: { color: colors.textSecondary, fontSize: 14, lineHeight: 21, marginTop: 8 },
+  cardTitle: { color: "#F5F5F5", fontSize: 22, fontWeight: "600", fontFamily: "'Inter','Geist',system-ui,sans-serif", marginTop: 4 },
+  cardBlurb: { color: "#9A9A9A", fontSize: 14, lineHeight: 22, marginTop: 8 },
   tagRow: { flexDirection: "row", flexWrap: "wrap", gap: 8, marginTop: 14 },
   tag: { borderWidth: 1, borderColor: colors.borderSubtle, borderRadius: 999, paddingHorizontal: 12, paddingVertical: 6, backgroundColor: "rgba(255,255,255,0.03)" },
   tagText: { color: colors.textSecondary, fontSize: 11, fontWeight: "600", letterSpacing: 0.5 },
-  linkMore: { color: colors.cyan, fontSize: 13, fontWeight: "700", marginTop: 14 },
+  linkMore: { color: "#1EA7FF", fontSize: 13, fontWeight: "600", marginTop: 14 },
   split: { flexDirection: "row", flexWrap: "wrap", gap: 40, alignItems: "center", justifyContent: "center" },
   splitBody: { flex: 1, flexBasis: 320, gap: 22 },
   bodyText: { color: colors.textSecondary, fontSize: 16, lineHeight: 26 },
@@ -635,12 +680,13 @@ const s = StyleSheet.create({
   floatChip2: { position: "absolute", bottom: 70, right: 0, backgroundColor: "rgba(10,10,14,0.85)", borderWidth: 1, borderColor: colors.border, borderRadius: 12, paddingHorizontal: 14, paddingVertical: 10 },
   floatChipText: { color: colors.textPrimary, fontSize: 12, fontWeight: "700" },
   chipGrid: { flexDirection: "row", flexWrap: "wrap", gap: 10, justifyContent: "center", marginTop: 26 },
-  cap: { borderWidth: 1, borderColor: colors.border, borderRadius: 999, paddingHorizontal: 16, paddingVertical: 10, backgroundColor: "rgba(255,255,255,0.04)" },
-  capText: { color: colors.textPrimary, fontSize: 12, fontWeight: "600", letterSpacing: 0.4 },
+  cap: { borderWidth: 1, borderColor: "rgba(255,255,255,0.18)", borderRadius: 999, paddingHorizontal: 16, paddingVertical: 10, backgroundColor: "rgba(255,255,255,0.02)" },
+  capText: { color: "#D5DBE5", fontSize: 12, fontWeight: "500", letterSpacing: 0.4 },
+  capStar: { color: "#1EA7FF" },
   thumb: { width: "100%", aspectRatio: 16 / 9, borderRadius: 12, marginBottom: 16, backgroundColor: "#111" },
   tplRow: { flexDirection: "row", alignItems: "center", justifyContent: "space-between", gap: 10 },
-  catPill: { backgroundColor: "rgba(16,221,244,0.12)", borderWidth: 1, borderColor: "rgba(16,221,244,0.35)", borderRadius: 999, paddingHorizontal: 12, paddingVertical: 6 },
-  catPillText: { color: colors.cyan, fontSize: 11, fontWeight: "700" },
+  catPill: { backgroundColor: "rgba(30,167,255,0.10)", borderWidth: 1, borderColor: "rgba(30,167,255,0.35)", borderRadius: 999, paddingHorizontal: 12, paddingVertical: 6 },
+  catPillText: { color: "#1EA7FF", fontSize: 11, fontWeight: "500" },
   ledHero: { borderRadius: 24, overflow: "hidden", position: "relative", borderWidth: 1, borderColor: colors.border },
   ledImg: { width: "100%", aspectRatio: 16 / 8 },
   ledShade: { position: "absolute", left: 0, right: 0, bottom: 0, height: 220 },
@@ -649,7 +695,7 @@ const s = StyleSheet.create({
   ledSub: { color: "rgba(255,255,255,0.75)", fontSize: 14, marginTop: 6 },
   trio: { flexDirection: "row", flexWrap: "wrap", gap: 18, marginTop: 26, justifyContent: "center" },
   trioImg: { width: "100%", aspectRatio: 1, borderRadius: 18, borderWidth: 1, borderColor: colors.borderSubtle },
-  projCat: { color: colors.magenta, fontSize: 11, fontWeight: "700", letterSpacing: 1.5, marginTop: 4 },
+  projCat: { color: "#1EA7FF", fontSize: 11, fontWeight: "500", letterSpacing: 2, marginTop: 14 },
   liveBtn: { marginTop: 4, minHeight: 44, justifyContent: "center" },
   prodCta: { marginTop: 6, minHeight: 44, justifyContent: "center" },
   logoChip: { paddingHorizontal: 34, paddingVertical: 14, marginHorizontal: 8, borderWidth: 1, borderColor: colors.borderSubtle, borderRadius: 999, backgroundColor: "rgba(255,255,255,0.02)" },

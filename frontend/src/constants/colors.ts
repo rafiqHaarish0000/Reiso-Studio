@@ -9,20 +9,20 @@ export const colors = {
   borderSubtle: "rgba(255,255,255,0.08)",
   gridLine: "rgba(255,255,255,0.09)",
   separator: "rgba(255,255,255,0.25)",
-  // Reiso logo-inspired accents
-  cyan: "#10DDF4",
-  electricBlue: "#0878FF",
+  // Reiso accents — restrained blue + violet only
+  cyan: "#1EA7FF",
+  electricBlue: "#168DFF",
   deepBlue: "#1638FF",
-  violet: "#711EFF",
-  purple: "#A718FF",
-  magenta: "#F01CFF",
-  pink: "#FF2EA6",
+  violet: "#5B35FF",
+  purple: "#713DFF",
+  magenta: "#713DFF",
+  pink: "#D62CFF",
   coral: "#FF586A",
   warmOrange: "#FF8A45",
   warmYellow: "#FFD15C",
-  // Signature gradient (used selectively, ~10% of UI)
+  // Signature gradient (used selectively)
   gradient:
-    "linear-gradient(120deg, #10DDF4 0%, #0878FF 20%, #3F2BFF 40%, #9C1DFF 58%, #FF24B8 75%, #FF655D 88%, #FFD15C 100%)",
+    "linear-gradient(120deg, #1EA7FF 0%, #168DFF 45%, #5B35FF 100%)",
 } as const;
 
 export type Colors = typeof colors;

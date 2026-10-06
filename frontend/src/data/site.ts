@@ -19,11 +19,11 @@ export const COMPANY = {
 } as const;
 
 export const NAV_LINKS = [
-  { label: "Home", href: "/" },
-  { label: "Products", href: "/products" },
+  { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
-  { label: "About Us", href: "/about" },
-  { label: "Contact Us", href: "/contact" },
+  { label: "Products", href: "/products" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "Contact", href: "/contact" },
 ] as const;
 
 const pic = (seed: string, w = 900, h = 700) =>

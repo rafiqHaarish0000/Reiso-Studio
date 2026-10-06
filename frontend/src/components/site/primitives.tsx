@@ -82,6 +82,9 @@ function WebReveal({ children, delay, y, style }: { children: React.ReactNode; d
     io.observe(el);
     return () => io.disconnect();
   }, []);
+  // NB: never spread a possibly-array style into an object (creates {0,1..} keys
+  // and crashes RN Web style handling) — flatten first.
+  const extra = (StyleSheet.flatten(style) ?? {}) as any;
   return (
     <Div
       ref={ref}
@@ -90,7 +93,7 @@ function WebReveal({ children, delay, y, style }: { children: React.ReactNode; d
         transform: vis ? "none" : `translateY(${y}px)`,
         transition: `opacity .8s ease ${delay}ms, transform .8s cubic-bezier(.22,1,.36,1) ${delay}ms`,
         willChange: "opacity, transform",
-        ...(style ?? {}),
+        ...extra,
       }}
     >
       {children}
@@ -202,6 +205,7 @@ export function SectionHead({ eyebrow, title, sub, align = "center" }: { eyebrow
 export function GradientText({ children, style }: { children: React.ReactNode; style?: any }) {
   // True gradient-clipped text needs DOM; on native we fall back to cyan pop.
   if (Platform.OS === "web") {
+    const extra = (StyleSheet.flatten(style) ?? {}) as any;
     return (
       <Span
         style={{
@@ -209,7 +213,7 @@ export function GradientText({ children, style }: { children: React.ReactNode; s
           WebkitBackgroundClip: "text",
           backgroundClip: "text",
           color: "transparent",
-          ...(style ?? {}),
+          ...extra,
         }}
       >
         {children}
@@ -243,7 +247,7 @@ export function CTAButton({ children, onPress, href, variant = "gradient" }: Btn
     >
       {variant === "gradient" ? (
         <LinearGradient
-          colors={["#0878FF", "#711EFF", "#F01CFF"]}
+          colors={["#1EA7FF", "#5B35FF"]}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 0 }}
           style={primStyles.btnInner}

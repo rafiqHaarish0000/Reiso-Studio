@@ -31,7 +31,8 @@ import {
   TESTIMONIALS,
   WHY_POINTS,
 } from "../../data/site";
-import { FinalCTA, SiteFooter, SiteNav } from "./chrome";
+import { SiteFooter, SiteNav } from "./chrome";
+import { CtaSection } from "./CtaSection";
 import { CTAButton, CountUp, Div, Float, GradientText, IFrame, Marquee, Reveal, SectionHead } from "./primitives";
 import { useResponsive } from "../../hooks/useResponsive";
 
@@ -87,7 +88,7 @@ export function SitePage({ active, children, cta = true }: { active: string; chi
       <Div style={{ backgroundColor: colors.bg0, minHeight: "100vh" }}>
         <SiteNav active={active} />
         {children}
-        {cta ? <FinalCTA /> : null}
+        {cta ? <CtaSection /> : null}
         <SiteFooter />
       </Div>
     );
@@ -97,7 +98,7 @@ export function SitePage({ active, children, cta = true }: { active: string; chi
       <SiteNav active={active} />
       <ScrollView style={{ flex: 1 }} contentContainerStyle={{ paddingBottom: 0 }}>
         {children}
-        {cta ? <FinalCTA /> : null}
+        {cta ? <CtaSection /> : null}
         <SiteFooter />
       </ScrollView>
     </View>
@@ -108,7 +109,7 @@ export function PageHero({ eyebrow, title, sub }: { eyebrow: string; title: Reac
   const { isMobile } = useResponsive();
   return (
     <View style={[s.hero, isMobile && s.heroMobile]}>
-      <LinearGradient colors={["rgba(8,120,255,0.16)", "rgba(240,28,255,0.10)", "transparent"]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={s.heroGlow} />
+      <LinearGradient colors={["rgba(30,167,255,0.16)", "rgba(91,53,255,0.10)", "transparent"]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={s.heroGlow} />
       <Reveal><Text style={s.eyebrow}>{eyebrow}</Text></Reveal>
       <Reveal delay={100}><Text style={[s.heroTitle, isMobile && s.heroTitleMobile]}>{title}</Text></Reveal>
       {sub ? <Reveal delay={200}><Text style={[s.heroSub, isMobile && s.heroSubMobile]}>{sub}</Text></Reveal> : null}
@@ -353,7 +354,7 @@ export function WhyChoose() {
         {WHY_POINTS.map((w, i) => (
           <Reveal key={w} delay={(i % 2) * 70} style={s.whyItem}>
             <View style={s.whyRow}>
-              <LinearGradient colors={["#0878FF", "#F01CFF"]} style={s.tick}><Text style={s.tickText}>✓</Text></LinearGradient>
+              <LinearGradient colors={["#1EA7FF", "#5B35FF"]} style={s.tick}><Text style={s.tickText}>✓</Text></LinearGradient>
               <Text style={s.whyText}>{w}</Text>
             </View>
           </Reveal>
@@ -484,7 +485,7 @@ export function EnquiryForm() {
         />
       </View>
       <Pressable onPress={submit} accessibilityRole="button" style={({ hovered }: any) => [s.submit, hovered && { opacity: 0.9 }]}>
-        <LinearGradient colors={["#0878FF", "#711EFF", "#F01CFF"]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} style={s.submitInner}>
+        <LinearGradient colors={["#1EA7FF", "#5B35FF"]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} style={s.submitInner}>
           <Text style={s.submitText}>{sent ? "✓ Opening WhatsApp…" : "Send Enquiry via WhatsApp"}</Text>
         </LinearGradient>
       </Pressable>
@@ -593,8 +594,8 @@ export function ProductGroups() {
 }
 
 const s = StyleSheet.create({
-  hero: { ...wrapCenter, alignItems: "center", paddingTop: 72, paddingBottom: 40 },
-  heroMobile: { paddingTop: 48, paddingBottom: 28 },
+  hero: { ...wrapCenter, alignItems: "center", paddingTop: 134, paddingBottom: 40 },
+  heroMobile: { paddingTop: 110, paddingBottom: 28 },
   heroGlow: { position: "absolute", top: 0, left: 0, right: 0, height: 480, opacity: 0.9 },
   eyebrow: { color: colors.cyan, fontSize: 12, fontWeight: "700", letterSpacing: 3, marginBottom: 18, textAlign: "center" },
   heroTitle: {
@@ -617,7 +618,7 @@ const s = StyleSheet.create({
     backgroundColor: "rgba(255,255,255,0.03)",
     borderWidth: 1, borderColor: colors.borderSubtle, borderRadius: 20, padding: 26,
   },
-  cardHover: { borderColor: "rgba(240,28,255,0.45)", backgroundColor: "rgba(255,255,255,0.05)", transform: [{ translateY: -4 }] as any },
+  cardHover: { borderColor: "rgba(30,167,255,0.45)", backgroundColor: "rgba(255,255,255,0.05)", transform: [{ translateY: -4 }] as any },
   cardIcon: { fontSize: 34, marginBottom: 14 },
   cardTitle: { color: colors.textPrimary, fontSize: 20, fontWeight: "700", fontFamily: "'Space Grotesk','Inter',sans-serif", marginTop: 4 },
   cardBlurb: { color: colors.textSecondary, fontSize: 14, lineHeight: 21, marginTop: 8 },
@@ -669,7 +670,7 @@ const s = StyleSheet.create({
   whyText: { color: colors.textPrimary, fontSize: 15, fontWeight: "600", flex: 1 },
   process: { gap: 16, maxWidth: 820, width: "100%", alignSelf: "center" },
   step: { flexDirection: "row", gap: 20, backgroundColor: "rgba(255,255,255,0.03)", borderWidth: 1, borderColor: colors.borderSubtle, borderRadius: 20, padding: 24, alignItems: "flex-start" },
-  stepNo: { width: 56, height: 56, borderRadius: 28, borderWidth: 1, borderColor: "rgba(240,28,255,0.5)", alignItems: "center", justifyContent: "center", backgroundColor: "rgba(240,28,255,0.08)" },
+  stepNo: { width: 56, height: 56, borderRadius: 28, borderWidth: 1, borderColor: "rgba(91,53,255,0.5)", alignItems: "center", justifyContent: "center", backgroundColor: "rgba(91,53,255,0.08)" },
   stepNoText: { color: colors.magenta, fontWeight: "800", fontSize: 16 },
   stepTitle: { color: colors.textPrimary, fontSize: 19, fontWeight: "700", fontFamily: "'Space Grotesk','Inter',sans-serif" },
   stepBlurb: { color: colors.textSecondary, fontSize: 14, lineHeight: 22, marginTop: 6 },
@@ -684,7 +685,7 @@ const s = StyleSheet.create({
   input: { backgroundColor: "rgba(0,0,0,0.4)", borderWidth: 1, borderColor: colors.border, borderRadius: 12, paddingHorizontal: 16, paddingVertical: 14, color: colors.textPrimary, fontSize: 15 },
   optRow: { flexDirection: "row", flexWrap: "wrap", gap: 8 },
   opt: { borderWidth: 1, borderColor: colors.borderSubtle, borderRadius: 999, paddingHorizontal: 14, paddingVertical: 9 },
-  optActive: { borderColor: colors.magenta, backgroundColor: "rgba(240,28,255,0.12)" },
+  optActive: { borderColor: colors.magenta, backgroundColor: "rgba(91,53,255,0.12)" },
   optText: { color: colors.textSecondary, fontSize: 12, fontWeight: "600" },
   optTextActive: { color: "#fff" },
   submit: { borderRadius: 14, overflow: "hidden", marginTop: 6 },

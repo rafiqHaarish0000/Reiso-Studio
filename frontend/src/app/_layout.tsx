@@ -23,6 +23,24 @@ export default function RootLayout() {
         s.textContent = `html,body,#root{height:100%;background:#050507;margin:0;}body{font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;}a{color:inherit}`;
         document.head.appendChild(s);
       }
+      // SEO: title + description + Open Graph (Reiso Studio branding).
+      document.title = "Reiso Studio — Digital Experiences That Move Businesses Forward";
+      const meta = (name: string, attr: "name" | "property", content: string) => {
+        let el = document.head.querySelector(`meta[${attr}="${name}"]`);
+        if (!el) {
+          el = document.createElement("meta");
+          el.setAttribute(attr, name);
+          document.head.appendChild(el);
+        }
+        el.setAttribute("content", content);
+      };
+      const desc =
+        "Reiso Studio designs and builds high-performance websites, mobile applications and digital products for ambitious businesses.";
+      meta("description", "name", desc);
+      meta("og:title", "property", "Reiso Studio — Digital Experiences That Move Businesses Forward");
+      meta("og:description", "property", desc);
+      meta("og:type", "property", "website");
+      meta("theme-color", "name", "#020307");
     }
   }, []);
 
@@ -40,6 +58,7 @@ export default function RootLayout() {
         <Stack.Screen name="work" />
         <Stack.Screen name="products" />
         <Stack.Screen name="services" />
+        <Stack.Screen name="pricing" />
         <Stack.Screen name="about" />
         <Stack.Screen name="contact" />
       </Stack>

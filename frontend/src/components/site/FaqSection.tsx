@@ -109,7 +109,7 @@ const s = StyleSheet.create({
   gridStacked: { flexDirection: "column", gap: 40 },
   left: { flex: 0.85, minWidth: 0 },
   right: { flex: 1.15, minWidth: 0 },
-  label: { color: "#1EA7FF", fontSize: 12, fontWeight: "500", letterSpacing: 2, marginBottom: 18 },
+  label: { color: "#C7FF23", fontSize: 12, fontWeight: "500", letterSpacing: 2, marginBottom: 18 },
   heading: {
     color: "#F5F5F5",
     fontSize: 64,

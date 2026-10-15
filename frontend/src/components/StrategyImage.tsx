@@ -109,7 +109,7 @@ export function StrategyImage({ width, height, animatedStyle, imgDomRef }: Strat
                 key={i}
                 style={[
                   styles.bar,
-                  { backgroundColor: menuHover ? "#050507" : "#F5F5F2" },
+                  { backgroundColor: menuHover ? "#050605" : "#F5F5F2" },
                 ]}
               />
             ))}
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
   frame: {
     width: "100%",
     height: "100%",
-    backgroundColor: "#0D0D11",
+    backgroundColor: "#0D1109",
     overflow: "hidden",
     position: "relative",
   },

@@ -4,7 +4,7 @@ import { Link } from "expo-router";
 import { colors } from "../constants/colors";
 import { useResponsive } from "../hooks/useResponsive";
 
-const LOGO = require("../assets/images/reiso-logo.png");
+const LOGO = require("../assets/images/reiso-logo-neon.png");
 
 const NAV = [
   { label: "WORK", href: "/work" as const },
@@ -84,9 +84,9 @@ export function Header({ onMenu }: { onMenu: () => void }) {
             >
               {Platform.OS === "web" ? (
                 // @ts-ignore web-only gradient border technique
-                <div style={{ padding: 1.2, borderRadius: 3, backgroundImage: hoverCta ? colors.gradient : "rgba(255,255,255,0.22)", boxShadow: hoverCta ? "0 8px 32px rgba(156,29,255,0.35)" : "none", transition: "all .25s ease", transform: hoverCta ? "translateY(-2px)" : "none" }}>
+                <div style={{ padding: 1.2, borderRadius: 3, backgroundImage: hoverCta ? colors.gradient : "rgba(255,255,255,0.22)", boxShadow: hoverCta ? "0 8px 32px rgba(199,255,35,0.35)" : "none", transition: "all .25s ease", transform: hoverCta ? "translateY(-2px)" : "none" }}>
                   {/* @ts-ignore */}
-                  <div style={{ background: "#0A0A0E", borderRadius: 2, padding: "10px 20px" }}>
+                  <div style={{ background: "#0A0C08", borderRadius: 2, padding: "10px 20px" }}>
                     {/* @ts-ignore */}
                     <span style={{ color: "#F5F5F2", fontSize: 13, fontWeight: 700, letterSpacing: 1.2 }}>START A PROJECT</span>
                   </div>

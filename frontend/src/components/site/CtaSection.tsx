@@ -17,8 +17,8 @@ function CtaBackdrop() {
   useCanvas2D(ref, (ctx, w, h, t) => {
     // Deep navy base glow.
     const base = ctx.createRadialGradient(w / 2, h * 1.1, 0, w / 2, h * 1.1, Math.max(w, h));
-    base.addColorStop(0, "rgba(22,90,200,0.28)");
-    base.addColorStop(0.5, "rgba(20,40,110,0.12)");
+    base.addColorStop(0, "rgba(145,185,15,0.28)");
+    base.addColorStop(0.5, "rgba(62,78,12,0.12)");
     base.addColorStop(1, "rgba(2,4,12,0)");
     ctx.fillStyle = base;
     ctx.fillRect(0, 0, w, h);
@@ -30,8 +30,8 @@ function CtaBackdrop() {
       ctx.translate(w / 2, h * 1.15);
       ctx.rotate(0.06 * Math.sin(t * 0.22 + k));
       const g = ctx.createLinearGradient(-r, 0, r, 0);
-      g.addColorStop(0, "rgba(30,167,255,0)");
-      g.addColorStop(0.5, `rgba(80,180,255,${(0.4 - k * 0.1).toFixed(3)})`);
+      g.addColorStop(0, "rgba(199,255,35,0)");
+      g.addColorStop(0.5, `rgba(199,255,35,${(0.4 - k * 0.1).toFixed(3)})`);
       g.addColorStop(1, "rgba(113,61,255,0)");
       ctx.strokeStyle = g;
       ctx.lineWidth = 1.5 + (2 - k) * 0.8;
@@ -93,7 +93,7 @@ export function CtaSection() {
                   marginLeft: -210,
                   marginTop: -210,
                   background:
-                    "radial-gradient(circle, rgba(30,167,255,0.12) 0%, transparent 65%)",
+                    "radial-gradient(circle, rgba(199,255,35,0.12) 0%, transparent 65%)",
                   opacity: 0,
                   transition: "opacity .5s ease",
                   pointerEvents: "none",
@@ -153,7 +153,7 @@ const s = StyleSheet.create({
     borderRadius: 28,
     borderWidth: 1,
     borderColor: "rgba(255,255,255,0.12)",
-    backgroundColor: "#040816",
+    backgroundColor: "#090B07",
     alignItems: "center",
     paddingVertical: 90,
     paddingHorizontal: 32,
@@ -182,7 +182,7 @@ const s = StyleSheet.create({
   sub: { color: "#A8B0C0", fontSize: 16, marginTop: 26, textAlign: "center" },
   btn: {
     marginTop: 32,
-    backgroundColor: "#5B35FF",
+    backgroundColor: "#A9D926",
     borderRadius: 999,
     paddingHorizontal: 44,
     paddingVertical: 18,

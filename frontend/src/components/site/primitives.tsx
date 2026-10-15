@@ -25,7 +25,7 @@ export const StyleTag: any = "style";
 // @ts-ignore web-only
 export const IFrame: any = "iframe";
 
-const LOGO = require("../../assets/images/reiso-logo.png");
+const LOGO = require("../../assets/images/reiso-logo-neon.png");
 
 export function Logo({ width = 128, height = 36 }: { width?: number; height?: number }) {
   return (
@@ -245,7 +245,7 @@ export function SafeImage({
             width: "100%",
             aspectRatio: aspect,
             borderRadius: 12,
-            backgroundColor: "#0A1224",
+            backgroundColor: "#0D1109",
             borderWidth: 1,
             borderColor: "rgba(255,255,255,0.08)",
             alignItems: "center",
@@ -255,14 +255,14 @@ export function SafeImage({
           style,
         ]}
       >
-        <Text style={{ color: "rgba(30,167,255,0.55)", fontSize: 22 }}>✦</Text>
+        <Text style={{ color: "rgba(199,255,35,0.55)", fontSize: 22 }}>✦</Text>
       </View>
     );
   }
   return (
     <Image
       source={{ uri }}
-      style={[{ width: "100%", aspectRatio: aspect, borderRadius: 12, backgroundColor: "#0A1224" }, style]}
+      style={[{ width: "100%", aspectRatio: aspect, borderRadius: 12, backgroundColor: "#0D1109" }, style]}
       accessibilityLabel={label}
       onError={() => setErr(true)}
     />
@@ -293,7 +293,7 @@ export function CTAButton({ children, onPress, href, variant = "gradient" }: Btn
     >
       {variant === "gradient" ? (
         <LinearGradient
-          colors={["#1EA7FF", "#5B35FF"]}
+          colors={["#C7FF23", "#A9D926"]}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 0 }}
           style={primStyles.btnInner}

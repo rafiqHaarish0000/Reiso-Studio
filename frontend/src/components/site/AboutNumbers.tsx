@@ -237,7 +237,7 @@ export function AboutNumbers() {
             ref={labelRef}
             className="reiso-about-anim"
             style={{
-              color: "#21B7FF",
+              color: "#C7FF23",
               fontSize: "13px",
               fontWeight: 500,
               letterSpacing: "1.5px",
@@ -264,7 +264,7 @@ export function AboutNumbers() {
                       }}
                       style={{
                         display: "inline-block",
-                        color: l.accent === "blue" ? "#21B7FF" : "#F5F5F5",
+                        color: l.accent === "blue" ? "#C7FF23" : "#F5F5F5",
                         fontSize: wide ? "44px" : isMobile ? "30px" : "36px",
                         lineHeight: 1.16,
                         fontWeight: 400,
@@ -298,7 +298,7 @@ export function AboutNumbers() {
                 style={{ opacity: 0 }}
               >
                 <Div style={{ display: "flex", alignItems: "flex-start", gap: "6px" }}>
-                  <Span style={{ color: "#21B7FF", fontSize: "16px", lineHeight: "30px" }}>↑</Span>
+                  <Span style={{ color: "#C7FF23", fontSize: "16px", lineHeight: "30px" }}>↑</Span>
                   <Span
                     ref={(el: any) => {
                       numRefs.current[i] = el;
@@ -360,7 +360,7 @@ export const InNumbersSection = AboutNumbers;
 const a = StyleSheet.create({
   section: { backgroundColor: "#000", paddingHorizontal: 24, paddingVertical: 80, gap: 8 },
   sectionMobile: { paddingVertical: 64 },
-  label: { color: "#21B7FF", fontSize: 13, fontWeight: "600", letterSpacing: 1.5, marginBottom: 16 },
+  label: { color: "#C7FF23", fontSize: 13, fontWeight: "600", letterSpacing: 1.5, marginBottom: 16 },
   nativeLine: { color: "#fff", fontSize: 30, fontWeight: "500", lineHeight: 38 },
   nativeStats: { flexDirection: "row", flexWrap: "wrap", gap: 24, marginTop: 32 },
   nativeStat: { flexBasis: 140, flexGrow: 1 },

@@ -38,7 +38,7 @@ export function InnovateSection() {
             <Rise y={30} delay={100}>
               <Text style={[s.heading, stacked && s.headingSmall]}>
                 <Text style={{ color: "#F5F5F5" }}>Transforming Businesses with{"\n"}</Text>
-                <Text style={{ color: "#00AFFF" }}>Cutting-Edge Solutions</Text>
+                <Text style={{ color: "#C7FF23" }}>Cutting-Edge Solutions</Text>
               </Text>
             </Rise>
             <Rise y={24} delay={200}>
@@ -71,7 +71,7 @@ const s = StyleSheet.create({
   visualStackedWrap: { width: "100%" },
   copy: { flex: 1, flexBasis: 0, minWidth: 0 },
   label: {
-    color: "#00AFFF",
+    color: "#C7FF23",
     fontSize: 13,
     fontWeight: "500",
     letterSpacing: 2,

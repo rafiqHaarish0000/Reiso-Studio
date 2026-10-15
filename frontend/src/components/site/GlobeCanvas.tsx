@@ -167,9 +167,9 @@ function drawFrame(
 
   // Atmosphere: soft blue halo behind sphere (10-20% feel, cheap radial).
   const halo = ctx.createRadialGradient(cx, cy, R * 0.7, cx, cy, R * 1.28);
-  halo.addColorStop(0, "rgba(33,183,255,0.10)");
-  halo.addColorStop(0.75, "rgba(33,183,255,0.05)");
-  halo.addColorStop(1, "rgba(33,183,255,0)");
+  halo.addColorStop(0, "rgba(199,255,35,0.10)");
+  halo.addColorStop(0.75, "rgba(199,255,35,0.05)");
+  halo.addColorStop(1, "rgba(199,255,35,0)");
   ctx.fillStyle = halo;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -182,9 +182,9 @@ function drawFrame(
     cy,
     R
   );
-  body.addColorStop(0, "#0A1830");
-  body.addColorStop(0.55, "#050B1A");
-  body.addColorStop(1, "#01030A");
+  body.addColorStop(0, "#172907");
+  body.addColorStop(0.55, "#090B07");
+  body.addColorStop(1, "#050605");
   ctx.fillStyle = body;
   ctx.beginPath();
   ctx.arc(cx, cy, R, 0, Math.PI * 2);
@@ -208,7 +208,7 @@ function drawFrame(
     const depth = Math.max(0, Math.min(1, (z2 + 0.06) / 1.06));
     const a = 0.45 + depth * 0.35;
     const s = dotBase * (0.65 + depth * 0.9);
-    ctx.fillStyle = `rgba(33,183,255,${a.toFixed(3)})`;
+    ctx.fillStyle = `rgba(199,255,35,${a.toFixed(3)})`;
     ctx.beginPath();
     ctx.arc(cx + x2 * R, cy - y1 * R, s, 0, Math.PI * 2);
     ctx.fill();
@@ -223,20 +223,20 @@ function drawFrame(
     cy - R * 0.5,
     R * 0.9
   );
-  hi.addColorStop(0, "rgba(140,220,255,0.07)");
-  hi.addColorStop(1, "rgba(140,220,255,0)");
+  hi.addColorStop(0, "rgba(232,255,193,0.07)");
+  hi.addColorStop(1, "rgba(232,255,193,0)");
   ctx.fillStyle = hi;
   ctx.beginPath();
   ctx.arc(cx, cy, R, 0, Math.PI * 2);
   ctx.fill();
 
   // Thin electric-blue rim (60%) + faint outer ring.
-  ctx.strokeStyle = "rgba(33,183,255,0.6)";
+  ctx.strokeStyle = "rgba(199,255,35,0.6)";
   ctx.lineWidth = 1.4 * dpr;
   ctx.beginPath();
   ctx.arc(cx, cy, R, 0, Math.PI * 2);
   ctx.stroke();
-  ctx.strokeStyle = "rgba(33,183,255,0.14)";
+  ctx.strokeStyle = "rgba(199,255,35,0.14)";
   ctx.lineWidth = 1 * dpr;
   ctx.beginPath();
   ctx.arc(cx, cy, R * 1.04, 0, Math.PI * 2);

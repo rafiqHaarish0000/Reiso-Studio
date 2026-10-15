@@ -184,7 +184,7 @@ export function ServicesSection() {
             maxHeight: 900,
             transform: "translate(-50%,-50%)",
             background:
-              "radial-gradient(ellipse at center, rgba(30,110,220,0.14) 0%, rgba(91,53,255,0.08) 45%, transparent 70%)",
+              "radial-gradient(ellipse at center, rgba(30,110,220,0.14) 0%, rgba(169,217,38,0.08) 45%, transparent 70%)",
             filter: "blur(60px)",
             pointerEvents: "none",
           }}
@@ -257,7 +257,7 @@ export function ServicesSection() {
               <IconCanvas size={isMobile ? 96 : 120} variant={card.icon} />
               <Div
                 style={{
-                  color: "#1EA7FF",
+                  color: "#C7FF23",
                   fontSize: 12,
                   fontWeight: 700,
                   letterSpacing: "2px",
@@ -300,7 +300,7 @@ const c = StyleSheet.create({
     borderRadius: 20,
     borderWidth: 1,
     borderColor: "rgba(255,255,255,0.14)",
-    backgroundColor: "#060B18",
+    backgroundColor: "#0D1109",
     alignItems: "center",
     justifyContent: "center",
   },

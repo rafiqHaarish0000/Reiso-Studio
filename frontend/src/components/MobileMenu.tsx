@@ -59,7 +59,7 @@ export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => vo
               // @ts-ignore web-only gradient border wrapper
               <div style={{ padding: 1.5, borderRadius: 3, backgroundImage: colors.gradient, width: "100%" }}>
                 {/* @ts-ignore */}
-                <div style={{ background: "#050507", borderRadius: 2, textAlign: "center", padding: "15px 0" }}>
+                <div style={{ background: "#050605", borderRadius: 2, textAlign: "center", padding: "15px 0" }}>
                   {/* @ts-ignore */}
                   <span style={{ color: "#F5F5F2", fontWeight: 700, letterSpacing: 1.4, fontSize: 14 }}>START A PROJECT</span>
                 </div>
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     zIndex: 60,
-    backgroundColor: "#050507",
+    backgroundColor: "#050605",
   },
   inner: {
     flex: 1,

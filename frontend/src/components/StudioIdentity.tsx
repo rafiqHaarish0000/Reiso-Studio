@@ -2,7 +2,7 @@ import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 import { colors } from "../constants/colors";
 
-const LOGO = require("../assets/images/reiso-logo.png");
+const LOGO = require("../assets/images/reiso-logo-neon.png");
 
 export function StudioIdentity() {
   return (

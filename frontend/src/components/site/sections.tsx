@@ -31,7 +31,8 @@ import {
   TESTIMONIALS,
   WHY_POINTS,
 } from "../../data/site";
-import { SiteFooter, SiteNav } from "./chrome";
+import { SiteFooter } from "./chrome";
+import { LandingNavbar } from "./LandingNavbar";
 import { CtaSection } from "./CtaSection";
 import { CTAButton, CountUp, Div, Float, GradientText, IFrame, Marquee, Reveal, SafeImage, SectionHead } from "./primitives";
 import { useResponsive } from "../../hooks/useResponsive";
@@ -86,8 +87,8 @@ export function SitePage({ active, children, cta = true }: { active: string; chi
   if (Platform.OS === "web") {
     return (
       <Div style={{ backgroundColor: colors.bg0, minHeight: "100vh" }}>
-        <SiteNav active={active} />
-        {children}
+        <LandingNavbar active={active} />
+        <Div className="reiso-page-enter" style={{ width: "100%" }}>{children}</Div>
         {cta ? <CtaSection /> : null}
         <SiteFooter />
       </Div>
@@ -95,9 +96,9 @@ export function SitePage({ active, children, cta = true }: { active: string; chi
   }
   return (
     <View style={{ flex: 1, backgroundColor: colors.bg0 }}>
-      <SiteNav active={active} />
+      <LandingNavbar active={active} />
       <ScrollView style={{ flex: 1 }} contentContainerStyle={{ paddingBottom: 0 }}>
-        {children}
+        <View style={{ width: "100%" }}>{children}</View>
         {cta ? <CtaSection /> : null}
         <SiteFooter />
       </ScrollView>
@@ -109,7 +110,7 @@ export function PageHero({ eyebrow, title, sub }: { eyebrow: string; title: Reac
   const { isMobile } = useResponsive();
   return (
     <View style={[s.hero, isMobile && s.heroMobile]}>
-      <LinearGradient colors={["rgba(30,167,255,0.16)", "rgba(91,53,255,0.10)", "transparent"]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={s.heroGlow} />
+      <LinearGradient colors={["rgba(199,255,35,0.16)", "rgba(169,217,38,0.10)", "transparent"]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={s.heroGlow} />
       <Reveal><Text style={s.eyebrow}>{eyebrow}</Text></Reveal>
       <Reveal delay={100}><Text style={[s.heroTitle, isMobile && s.heroTitleMobile]}>{title}</Text></Reveal>
       {sub ? <Reveal delay={200}><Text style={[s.heroSub, isMobile && s.heroSubMobile]}>{sub}</Text></Reveal> : null}
@@ -142,7 +143,7 @@ export function LeftHead({ eyebrow, title, sub }: { eyebrow: string; title: stri
 }
 
 const lh = StyleSheet.create({
-  label: { color: "#1EA7FF", fontSize: 13, fontWeight: "500", letterSpacing: 2, marginBottom: 20 },
+  label: { color: "#C7FF23", fontSize: 13, fontWeight: "500", letterSpacing: 2, marginBottom: 20 },
   bracket: { color: "rgba(255,255,255,0.35)" },
   title: {
     color: "#F5F5F5",
@@ -399,7 +400,7 @@ export function WhyChoose() {
         {WHY_POINTS.map((w, i) => (
           <Reveal key={w} delay={(i % 2) * 70} style={s.whyItem}>
             <View style={s.whyRow}>
-              <LinearGradient colors={["#1EA7FF", "#5B35FF"]} style={s.tick}><Text style={s.tickText}>✓</Text></LinearGradient>
+              <LinearGradient colors={["#C7FF23", "#A9D926"]} style={s.tick}><Text style={s.tickText}>✓</Text></LinearGradient>
               <Text style={s.whyText}>{w}</Text>
             </View>
           </Reveal>
@@ -530,7 +531,7 @@ export function EnquiryForm() {
         />
       </View>
       <Pressable onPress={submit} accessibilityRole="button" style={({ hovered }: any) => [s.submit, hovered && { opacity: 0.9 }]}>
-        <LinearGradient colors={["#1EA7FF", "#5B35FF"]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} style={s.submitInner}>
+        <LinearGradient colors={["#C7FF23", "#A9D926"]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} style={s.submitInner}>
           <Text style={s.submitText}>{sent ? "✓ Opening WhatsApp…" : "Send Enquiry via WhatsApp"}</Text>
         </LinearGradient>
       </Pressable>
@@ -670,7 +671,7 @@ const s = StyleSheet.create({
   tagRow: { flexDirection: "row", flexWrap: "wrap", gap: 8, marginTop: 14 },
   tag: { borderWidth: 1, borderColor: colors.borderSubtle, borderRadius: 999, paddingHorizontal: 12, paddingVertical: 6, backgroundColor: "rgba(255,255,255,0.03)" },
   tagText: { color: colors.textSecondary, fontSize: 11, fontWeight: "600", letterSpacing: 0.5 },
-  linkMore: { color: "#1EA7FF", fontSize: 13, fontWeight: "600", marginTop: 14 },
+  linkMore: { color: "#C7FF23", fontSize: 13, fontWeight: "600", marginTop: 14 },
   split: { flexDirection: "row", flexWrap: "wrap", gap: 40, alignItems: "center", justifyContent: "center" },
   splitBody: { flex: 1, flexBasis: 320, gap: 22 },
   bodyText: { color: colors.textSecondary, fontSize: 16, lineHeight: 26 },
@@ -682,11 +683,11 @@ const s = StyleSheet.create({
   chipGrid: { flexDirection: "row", flexWrap: "wrap", gap: 10, justifyContent: "center", marginTop: 26 },
   cap: { borderWidth: 1, borderColor: "rgba(255,255,255,0.18)", borderRadius: 999, paddingHorizontal: 16, paddingVertical: 10, backgroundColor: "rgba(255,255,255,0.02)" },
   capText: { color: "#D5DBE5", fontSize: 12, fontWeight: "500", letterSpacing: 0.4 },
-  capStar: { color: "#1EA7FF" },
+  capStar: { color: "#C7FF23" },
   thumb: { width: "100%", aspectRatio: 16 / 9, borderRadius: 12, marginBottom: 16, backgroundColor: "#111" },
   tplRow: { flexDirection: "row", alignItems: "center", justifyContent: "space-between", gap: 10 },
-  catPill: { backgroundColor: "rgba(30,167,255,0.10)", borderWidth: 1, borderColor: "rgba(30,167,255,0.35)", borderRadius: 999, paddingHorizontal: 12, paddingVertical: 6 },
-  catPillText: { color: "#1EA7FF", fontSize: 11, fontWeight: "500" },
+  catPill: { backgroundColor: "rgba(199,255,35,0.10)", borderWidth: 1, borderColor: "rgba(199,255,35,0.35)", borderRadius: 999, paddingHorizontal: 12, paddingVertical: 6 },
+  catPillText: { color: "#C7FF23", fontSize: 11, fontWeight: "500" },
   ledHero: { borderRadius: 24, overflow: "hidden", position: "relative", borderWidth: 1, borderColor: colors.border },
   ledImg: { width: "100%", aspectRatio: 16 / 8 },
   ledShade: { position: "absolute", left: 0, right: 0, bottom: 0, height: 220 },
@@ -695,14 +696,14 @@ const s = StyleSheet.create({
   ledSub: { color: "rgba(255,255,255,0.75)", fontSize: 14, marginTop: 6 },
   trio: { flexDirection: "row", flexWrap: "wrap", gap: 18, marginTop: 26, justifyContent: "center" },
   trioImg: { width: "100%", aspectRatio: 1, borderRadius: 18, borderWidth: 1, borderColor: colors.borderSubtle },
-  projCat: { color: "#1EA7FF", fontSize: 11, fontWeight: "500", letterSpacing: 2, marginTop: 14 },
+  projCat: { color: "#C7FF23", fontSize: 11, fontWeight: "500", letterSpacing: 2, marginTop: 14 },
   liveBtn: { marginTop: 4, minHeight: 44, justifyContent: "center" },
   prodCta: { marginTop: 6, minHeight: 44, justifyContent: "center" },
   logoChip: { paddingHorizontal: 34, paddingVertical: 14, marginHorizontal: 8, borderWidth: 1, borderColor: colors.borderSubtle, borderRadius: 999, backgroundColor: "rgba(255,255,255,0.02)" },
   logoText: { color: colors.textSecondary, fontSize: 15, fontWeight: "700", letterSpacing: 1 },
   tRow: { gap: 18, paddingHorizontal: 20 },
   tCard: { width: 320, backgroundColor: "rgba(255,255,255,0.03)", borderWidth: 1, borderColor: colors.borderSubtle, borderRadius: 20, padding: 26, gap: 10 },
-  stars: { color: "#FFD15C", fontSize: 14, letterSpacing: 3 },
+  stars: { color: "#D9FF70", fontSize: 14, letterSpacing: 3 },
   tQuote: { color: colors.textPrimary, fontSize: 15, lineHeight: 24 },
   tName: { color: colors.textPrimary, fontSize: 14, fontWeight: "700", marginTop: 6 },
   tRole: { color: colors.textMuted, fontSize: 12 },
@@ -716,7 +717,7 @@ const s = StyleSheet.create({
   whyText: { color: colors.textPrimary, fontSize: 15, fontWeight: "600", flex: 1 },
   process: { gap: 16, maxWidth: 820, width: "100%", alignSelf: "center" },
   step: { flexDirection: "row", gap: 20, backgroundColor: "rgba(255,255,255,0.03)", borderWidth: 1, borderColor: colors.borderSubtle, borderRadius: 20, padding: 24, alignItems: "flex-start" },
-  stepNo: { width: 56, height: 56, borderRadius: 28, borderWidth: 1, borderColor: "rgba(91,53,255,0.5)", alignItems: "center", justifyContent: "center", backgroundColor: "rgba(91,53,255,0.08)" },
+  stepNo: { width: 56, height: 56, borderRadius: 28, borderWidth: 1, borderColor: "rgba(169,217,38,0.5)", alignItems: "center", justifyContent: "center", backgroundColor: "rgba(169,217,38,0.08)" },
   stepNoText: { color: colors.magenta, fontWeight: "800", fontSize: 16 },
   stepTitle: { color: colors.textPrimary, fontSize: 19, fontWeight: "700", fontFamily: "'Space Grotesk','Inter',sans-serif" },
   stepBlurb: { color: colors.textSecondary, fontSize: 14, lineHeight: 22, marginTop: 6 },
@@ -731,7 +732,7 @@ const s = StyleSheet.create({
   input: { backgroundColor: "rgba(0,0,0,0.4)", borderWidth: 1, borderColor: colors.border, borderRadius: 12, paddingHorizontal: 16, paddingVertical: 14, color: colors.textPrimary, fontSize: 15 },
   optRow: { flexDirection: "row", flexWrap: "wrap", gap: 8 },
   opt: { borderWidth: 1, borderColor: colors.borderSubtle, borderRadius: 999, paddingHorizontal: 14, paddingVertical: 9 },
-  optActive: { borderColor: colors.magenta, backgroundColor: "rgba(91,53,255,0.12)" },
+  optActive: { borderColor: colors.magenta, backgroundColor: "rgba(169,217,38,0.12)" },
   optText: { color: colors.textSecondary, fontSize: 12, fontWeight: "600" },
   optTextActive: { color: "#fff" },
   submit: { borderRadius: 14, overflow: "hidden", marginTop: 6 },

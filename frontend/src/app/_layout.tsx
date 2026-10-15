@@ -1,9 +1,11 @@
 import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Platform } from "react-native";
+import { SplashScreen } from "../components/SplashScreen";
 
 export default function RootLayout() {
+  const [showSplash, setShowSplash] = useState(true);
   // Load Space Grotesk + Inter on web for the editorial grotesk feel.
   useEffect(() => {
     if (Platform.OS === "web" && typeof document !== "undefined") {
@@ -20,7 +22,7 @@ export default function RootLayout() {
       if (!document.getElementById(styleId)) {
         const s = document.createElement("style");
         s.id = styleId;
-        s.textContent = `html,body,#root{height:100%;background:#050507;margin:0;}body{font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;}a{color:inherit}`;
+        s.textContent = `html,body,#root{height:100%;background:#050605;margin:0;}body{font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;}a{color:inherit}@keyframes reisoPageEnter{from{opacity:0;transform:translate3d(0,14px,0)}to{opacity:1;transform:translate3d(0,0,0)}}.reiso-page-enter{animation:reisoPageEnter 820ms cubic-bezier(.2,.75,.25,1) both}@media(prefers-reduced-motion:reduce){.reiso-page-enter{animation:none!important}}`;
         document.head.appendChild(s);
       }
       // SEO: title + description + Open Graph (Reiso Studio branding).
@@ -40,17 +42,17 @@ export default function RootLayout() {
       meta("og:title", "property", "Reiso Studio — Digital Experiences That Move Businesses Forward");
       meta("og:description", "property", desc);
       meta("og:type", "property", "website");
-      meta("theme-color", "name", "#020307");
+      meta("theme-color", "name", "#050605");
     }
   }, []);
 
   return (
     <>
-      <StatusBar style="light" backgroundColor="#050507" />
+      <StatusBar style="light" backgroundColor="#050605" hidden={showSplash} />
       <Stack
         screenOptions={{
           headerShown: false,
-          contentStyle: { backgroundColor: "#050507" },
+          contentStyle: { backgroundColor: "#050605" },
           animation: "fade",
         }}
       >
@@ -62,6 +64,7 @@ export default function RootLayout() {
         <Stack.Screen name="about" />
         <Stack.Screen name="contact" />
       </Stack>
+      {showSplash ? <SplashScreen onFinish={() => setShowSplash(false)} /> : null}
     </>
   );
 }

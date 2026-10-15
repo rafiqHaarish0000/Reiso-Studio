@@ -209,7 +209,7 @@ export function HeroSection() {
         </View>
         <Text style={[n.title, { fontSize: headlineSize }]}>
           Building digital{"\n"}experiences{"\n"}that move{"\n"}
-          <Text style={{ color: "#21B7FF" }}>businesses forward.</Text>
+          <Text style={{ color: "#C7FF23" }}>businesses forward.</Text>
         </Text>
         <Text style={n.sub}>
           We design and build high-performance software, web and mobile experiences for ambitious businesses.
@@ -224,7 +224,7 @@ export function HeroSection() {
         </View>
         <View style={n.card}>
           <Text style={n.cardTitle}>
-            Move faster. <Text style={{ color: "#21B7FF" }}>Build smarter.</Text>
+            Move faster. <Text style={{ color: "#C7FF23" }}>Build smarter.</Text>
           </Text>
           <Text style={n.cardSub}>
             We combine strategy, design and engineering to create digital products built for growth.
@@ -262,7 +262,7 @@ export function HeroSection() {
         minHeight: "100vh",
         width: "100%",
         overflow: "hidden",
-        backgroundColor: "#02040A",
+        backgroundColor: "#050605",
       }}
     >
       <StyleTag>{`
@@ -286,7 +286,7 @@ export function HeroSection() {
           position: "absolute",
           inset: "-3%",
           animation: "reiso-bg-scale 26s ease-in-out infinite",
-          backgroundColor: "#02040A",
+          backgroundColor: "#050605",
           willChange: "transform",
         }}
       >
@@ -437,7 +437,7 @@ export function HeroSection() {
                 animation: "reiso-rise-sm .7s cubic-bezier(.22,1,.36,1) both",
               }}
             >
-              <Span style={{ color: "#21B7FF", fontSize: "12px" }}>✦</Span>
+              <Span style={{ color: "#C7FF23", fontSize: "12px" }}>✦</Span>
               <Span style={{ color: "#DDE4F3", fontSize: "13.5px", fontWeight: 500, letterSpacing: "0.2px", fontFamily: "Inter,Manrope,system-ui,sans-serif" }}>
                 Building Digital Futures
               </Span>
@@ -460,7 +460,7 @@ export function HeroSection() {
               Building digital<br />
               experiences<br />
               that move<br />
-              <Span style={{ color: "#21B7FF" }}>businesses forward.</Span>
+              <Span style={{ color: "#C7FF23" }}>businesses forward.</Span>
             </Div>
 
             <Div
@@ -503,7 +503,7 @@ export function HeroSection() {
                   paddingLeft: "26px",
                   paddingRight: "26px",
                   borderRadius: "999px",
-                  backgroundColor: "#5B35FF",
+                  backgroundColor: "#A9D926",
                   alignItems: "center",
                   justifyContent: "center",
                   minWidth: 44,
@@ -512,8 +512,8 @@ export function HeroSection() {
                   ...(Platform.OS === "web"
                     ? ({
                         boxShadow: primaryHover
-                          ? "0 14px 36px rgba(91,53,255,0.55)"
-                          : "0 8px 24px rgba(91,53,255,0.30)",
+                          ? "0 14px 36px rgba(169,217,38,0.55)"
+                          : "0 8px 24px rgba(169,217,38,0.30)",
                         transition: "transform .25s ease, box-shadow .25s ease",
                         cursor: "pointer",
                       } as any)
@@ -538,7 +538,7 @@ export function HeroSection() {
               >
                 <Text
                   style={{
-                    color: secondaryHover ? "#21B7FF" : "#FFFFFF",
+                    color: secondaryHover ? "#C7FF23" : "#FFFFFF",
                     fontSize: 15,
                     fontWeight: "500",
                     fontFamily: "Inter,system-ui,sans-serif",
@@ -568,7 +568,7 @@ export function HeroSection() {
             <Div
               style={{
                 borderRadius: "17px",
-                backgroundColor: "rgba(28,48,105,0.72)",
+                backgroundColor: "rgba(62,78,12,0.72)",
                 border: "1px solid rgba(255,255,255,0.12)",
                 padding: "26px 26px 24px",
                 backdropFilter: "blur(22px)",
@@ -578,7 +578,7 @@ export function HeroSection() {
             >
               <Div style={{ color: "#FFFFFF", fontSize: "27px", fontWeight: 500, lineHeight: 1.25, letterSpacing: "-0.5px", fontFamily: "Inter,Manrope,sans-serif" }}>
                 Move faster.<br />
-                <Span style={{ color: "#21B7FF" }}>Build smarter.</Span>
+                <Span style={{ color: "#C7FF23" }}>Build smarter.</Span>
               </Div>
               <Div style={{ marginTop: "10px", color: "#D2D9E8", fontSize: "15px", lineHeight: 1.55, fontFamily: "Inter,system-ui,sans-serif" }}>
                 We combine strategy, design and engineering to create digital products built for growth.
@@ -660,7 +660,7 @@ export function HeroSection() {
 }
 
 const n = StyleSheet.create({
-  hero: { backgroundColor: "#02040A", paddingHorizontal: 24, paddingTop: 130, paddingBottom: 40, gap: 14 },
+  hero: { backgroundColor: "#050605", paddingHorizontal: 24, paddingTop: 130, paddingBottom: 40, gap: 14 },
   heroMobile: { paddingTop: 120 },
   badge: {
     alignSelf: "flex-start", backgroundColor: "rgba(0,0,0,0.65)",
@@ -671,12 +671,12 @@ const n = StyleSheet.create({
   title: { color: "#fff", fontWeight: "500", letterSpacing: -2, lineHeight: 52, marginTop: 12, fontFamily: "'Inter',system-ui,sans-serif" },
   sub: { color: "rgba(210,218,235,0.78)", fontSize: 16, lineHeight: 25, marginTop: 8, maxWidth: 520 },
   ctaRow: { flexDirection: "row", flexWrap: "wrap", gap: 16, alignItems: "center", marginTop: 14 },
-  primary: { backgroundColor: "#5B35FF", height: 50, paddingHorizontal: 26, borderRadius: 999, alignItems: "center", justifyContent: "center" },
+  primary: { backgroundColor: "#A9D926", height: 50, paddingHorizontal: 26, borderRadius: 999, alignItems: "center", justifyContent: "center" },
   primaryText: { color: "#fff", fontSize: 15, fontWeight: "600" },
   secondary: { minHeight: 44, justifyContent: "center" },
   secondaryText: { color: "#fff", fontSize: 15 },
   card: {
-    backgroundColor: "rgba(28,48,105,0.72)", borderWidth: 1, borderColor: "rgba(255,255,255,0.12)",
+    backgroundColor: "rgba(62,78,12,0.72)", borderWidth: 1, borderColor: "rgba(255,255,255,0.12)",
     borderRadius: 17, padding: 24, marginTop: 14,
   },
   cardTitle: { color: "#fff", fontSize: 26, fontWeight: "500", lineHeight: 32 },

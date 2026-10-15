@@ -39,7 +39,7 @@ export default function Pricing() {
         {TIERS.map((t, i) => (
           <Reveal key={t.name} delay={i * 90} style={{ flexGrow: 1, flexShrink: 1, flexBasis: 280, maxWidth: 380 }}>
             <View style={{ backgroundColor: "rgba(255,255,255,0.03)", borderWidth: 1, borderColor: "rgba(255,255,255,0.1)", borderRadius: 20, padding: 28, gap: 10 }}>
-              <Text style={{ color: "#21B7FF", fontSize: 12, fontWeight: "700", letterSpacing: 2 }}>{t.name.toUpperCase()}</Text>
+              <Text style={{ color: "#C7FF23", fontSize: 12, fontWeight: "700", letterSpacing: 2 }}>{t.name.toUpperCase()}</Text>
               <Text style={{ color: "#fff", fontSize: 34, fontWeight: "700", fontFamily: "'Space Grotesk','Inter',sans-serif" }}>{t.price}</Text>
               <Text style={{ color: "#AEB8CC", fontSize: 14, lineHeight: 21 }}>{t.blurb}</Text>
               {t.points.map((p) => (

@@ -286,7 +286,7 @@ export function FinalCTA() {
             margin: "0 auto",
             borderRadius: 28,
             border: "1px solid rgba(255,255,255,0.10)",
-            backgroundColor: "#030712",
+            backgroundColor: "#090B07",
           }}
         >
           <Div
@@ -299,7 +299,7 @@ export function FinalCTA() {
               height: 420,
               marginLeft: -210,
               marginTop: -210,
-              background: "radial-gradient(circle, rgba(30,167,255,0.14) 0%, rgba(91,53,255,0.08) 45%, transparent 70%)",
+              background: "radial-gradient(circle, rgba(199,255,35,0.14) 0%, rgba(169,217,38,0.08) 45%, transparent 70%)",
               filter: "blur(30px)",
               opacity: 0,
               transition: "opacity .5s ease",
@@ -314,7 +314,7 @@ export function FinalCTA() {
               width: "80%",
               height: "120%",
               transform: "translateX(-50%)",
-              background: "radial-gradient(ellipse at center, rgba(30,167,255,0.10) 0%, transparent 65%)",
+              background: "radial-gradient(ellipse at center, rgba(199,255,35,0.10) 0%, transparent 65%)",
               filter: "blur(50px)",
               pointerEvents: "none",
             }}
@@ -400,7 +400,7 @@ export function SiteFooter() {
     return (
       <Div
         style={{
-          background: "linear-gradient(180deg, #000000 0%, #02040C 55%, #0A1030 100%)",
+          background: "linear-gradient(180deg, #000000 0%, #090B07 55%, #101505 100%)",
           borderTop: "1px solid rgba(255,255,255,0.08)",
         }}
       >
@@ -418,7 +418,7 @@ export function SiteFooter() {
       </Div>
     );
   }
-  return <View style={[styles.footer, { backgroundColor: "#02040C" }]}>{footerInner}</View>;
+  return <View style={[styles.footer, { backgroundColor: "#090B07" }]}>{footerInner}</View>;
 }
 
 const styles = StyleSheet.create({
@@ -463,7 +463,7 @@ const styles = StyleSheet.create({
     textShadowRadius: 12,
   },
   linkActive: { color: "#FFFFFF" },
-  activeDot: { width: 3, height: 3, borderRadius: 1.5, backgroundColor: "#21B7FF", marginTop: 5, alignSelf: "center" },
+  activeDot: { width: 3, height: 3, borderRadius: 1.5, backgroundColor: "#C7FF23", marginTop: 5, alignSelf: "center" },
   cta: {
     paddingLeft: 22,
     paddingRight: 22,
@@ -524,7 +524,7 @@ const styles = StyleSheet.create({
   ctaRow: { flexDirection: "row", gap: 14, marginTop: 28, flexWrap: "wrap", justifyContent: "center" },
   bigBtn: {
     borderRadius: 999,
-    backgroundColor: "#5B35FF",
+    backgroundColor: "#A9D926",
     paddingHorizontal: 40,
     paddingVertical: 19,
     minHeight: 58,

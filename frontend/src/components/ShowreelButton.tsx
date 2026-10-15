@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
   },
   circleHover: {
     borderWidth: 1.5,
-    borderColor: "#711EFF",
+    borderColor: "#8FBF10",
   },
   icon: {
     color: "#F2F2F0",

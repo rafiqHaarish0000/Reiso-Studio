@@ -120,7 +120,7 @@ const s = StyleSheet.create({
   },
   titleSmall: { fontSize: 32, lineHeight: 38 },
   label: {
-    color: "#00AFFF",
+    color: "#C7FF23",
     fontSize: 13,
     fontWeight: "500",
     letterSpacing: 2,

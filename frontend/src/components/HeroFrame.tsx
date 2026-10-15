@@ -196,7 +196,7 @@ const styles = StyleSheet.create({ // @ts-ignore web-only CSS props (backgroundI
     marginLeft: -210,
     marginTop: -140,
     borderRadius: 140,
-    backgroundColor: "#9C1DFF",
+    backgroundColor: "#C7FF23",
     opacity: 0,
   },
   est: {

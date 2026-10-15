@@ -114,7 +114,7 @@ const s = StyleSheet.create({
     fontFamily: "'Inter','Geist',system-ui,sans-serif",
   },
   titleSmall: { fontSize: 32 },
-  label: { color: "#00AFFF", fontSize: 13, fontWeight: "500", letterSpacing: 2 },
+  label: { color: "#C7FF23", fontSize: 13, fontWeight: "500", letterSpacing: 2 },
   grid: { flexDirection: "row", gap: 20, justifyContent: "center" },
   gridStacked: { flexDirection: "column" },
   cardWrap: { flex: 1, flexBasis: 0, minWidth: 0 },

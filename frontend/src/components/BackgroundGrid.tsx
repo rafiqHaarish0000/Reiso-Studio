@@ -49,7 +49,7 @@ const styles = StyleSheet.create({ // @ts-ignore web-only CSS props (backgroundI
           backgroundImage: colors.gradient,
           filter: "blur(120px)",
         } as any)
-      : { backgroundColor: "#3F2BFF" }),
+      : { backgroundColor: "#8FBF10" }),
   },
   glowBottom: {
     position: "absolute",
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({ // @ts-ignore web-only CSS props (backgroundI
           backgroundImage: colors.gradient,
           filter: "blur(130px)",
         } as any)
-      : { backgroundColor: "#711EFF" }),
+      : { backgroundColor: "#8FBF10" }),
   },
   columns: {
     ...StyleSheet.absoluteFillObject,

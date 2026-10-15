@@ -177,7 +177,7 @@ export function AboutSection() {
                   height: isMobile ? 200 : 260,
                   border: "1px solid rgba(255,255,255,0.10)",
                   background:
-                    "radial-gradient(60% 80% at 30% 20%, rgba(30,167,255,0.16), transparent 70%), radial-gradient(50% 60% at 75% 80%, rgba(91,53,255,0.14), transparent 70%), #050914",
+                    "radial-gradient(60% 80% at 30% 20%, rgba(199,255,35,0.16), transparent 70%), radial-gradient(50% 60% at 75% 80%, rgba(169,217,38,0.14), transparent 70%), #050914",
                   overflow: "hidden",
                   position: "relative",
                 }}
@@ -217,7 +217,7 @@ export function AboutSection() {
                     <View key={p} style={s.pointRow}>
                       <Text
                         style={{
-                          color: "#1EA7FF",
+                          color: "#C7FF23",
                           fontSize: 15,
                           fontWeight: "700",
                         }}
@@ -241,7 +241,7 @@ const s = StyleSheet.create({
   section: { paddingVertical: 150, backgroundColor: "#000000" },
   sectionMobile: { paddingVertical: 90 },
   eyebrow: {
-    color: "#1EA7FF",
+    color: "#C7FF23",
     fontSize: 13,
     fontWeight: "500",
     letterSpacing: 2,
@@ -284,9 +284,9 @@ const s = StyleSheet.create({
   svcGridMobile: { gap: 16 },
   svcItem: { flexGrow: 1, flexShrink: 1, flexBasis: 300, minWidth: 0, maxWidth: 420 },
   svcTop: { flexDirection: "row", justifyContent: "space-between", alignItems: "center", marginBottom: 18 },
-  svcNo: { color: "#1EA7FF", fontSize: 14, fontWeight: "700", letterSpacing: 2 },
+  svcNo: { color: "#C7FF23", fontSize: 14, fontWeight: "700", letterSpacing: 2 },
   arrow: { color: "#70788A", fontSize: 22 },
-  arrowHover: { color: "#1EA7FF" },
+  arrowHover: { color: "#C7FF23" },
   prodGrid: { flexDirection: "row", flexWrap: "wrap", gap: 22, marginTop: 54, justifyContent: "center" },
   prodGridMobile: { gap: 18 },
   prodItem: { flexGrow: 1, flexShrink: 1, flexBasis: 320, minWidth: 0, maxWidth: 640 },
@@ -300,7 +300,7 @@ const s = StyleSheet.create({
     paddingBottom: 26,
   },
   imgWrap: { borderRadius: 12, overflow: "hidden", position: "relative" },
-  img: { width: "100%", aspectRatio: 16 / 10, backgroundColor: "#0A1224" },
+  img: { width: "100%", aspectRatio: 16 / 10, backgroundColor: "#0D1109" },
   imgHover: { transform: [{ scale: 1.04 }] as any },
   imgShade: {
     position: "absolute",
@@ -309,9 +309,9 @@ const s = StyleSheet.create({
     bottom: 0,
     height: 90,
   },
-  prodCat: { color: "#1EA7FF", fontSize: 11, fontWeight: "500", letterSpacing: 2, marginTop: 18, paddingHorizontal: 8 },
+  prodCat: { color: "#C7FF23", fontSize: 11, fontWeight: "500", letterSpacing: 2, marginTop: 18, paddingHorizontal: 8 },
   explore: { color: "#9A9A9A", fontSize: 14, fontWeight: "600", marginTop: 12, paddingHorizontal: 8 },
-  exploreHover: { color: "#1EA7FF" },
+  exploreHover: { color: "#C7FF23" },
   aboutGrid: { flexDirection: "row", flexWrap: "wrap", gap: 70, alignItems: "flex-start", justifyContent: "center" },
   aboutGridMobile: { gap: 36 },
   aboutLeft: { flex: 1, flexBasis: 340, minWidth: 0 },

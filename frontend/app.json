@@ -7,10 +7,10 @@
     "orientation": "default",
     "newArchEnabled": true,
     "userInterfaceStyle": "dark",
-    "backgroundColor": "#050507",
+    "backgroundColor": "#050605",
     "web": {
       "bundler": "metro",
-      "backgroundColor": "#050507",
+      "backgroundColor": "#050605",
       "name": "Reiso Studio — Digital products built for modern businesses"
     },
     "experiments": {
